@@ -13,7 +13,7 @@
   "bugs": "https://github.com/webpro/ts-morph-helpers/issues",
   "main": "dist/index.js",
   "scripts": {
-    "test": "node --loader tsx --test src/**/*.spec.ts",
+    "test": "node --import tsx --test src/**/*.spec.ts",
     "watch": "tsc --watch & npm run barrel",
     "build": "rm -rf dist && tsc",
     "barrel": "barrel-maintainer --singleQuotes --ts ./src",
@@ -30,16 +30,16 @@
   },
   "license": "Unlicense",
   "dependencies": {
-    "ts-morph": "17.0.1"
+    "ts-morph": "23.0.0"
   },
   "devDependencies": {
-    "@types/node": "18.11.9",
-    "@types/react": "18.0.25",
+    "@types/node": "22.5.2",
+    "@types/react": "18.3.5",
     "barrel-maintainer": "1.5.3",
     "prettier": "2.8.0",
     "release-it": "15.5.0",
-    "tsx": "3.12.1",
-    "typescript": "4.9.3"
+    "tsx": "4.19.0",
+    "typescript": "5.5.4"
   },
   "release-it": {
     "github": {
