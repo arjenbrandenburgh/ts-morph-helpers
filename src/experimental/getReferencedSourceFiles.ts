@@ -20,7 +20,7 @@ const getReferencedSourceFilesDeep = (
   allFiles: Set<SourceFile>,
   referencedFiles: Set<SourceFile>,
   getSymbols: GetSymbols,
-  abortTraversal?: AbortTraversal
+  abortTraversal?: AbortTraversal,
 ) => {
   for (const file of referencedFiles) {
     if (abortTraversal && abortTraversal(file)) {
@@ -42,7 +42,7 @@ const getReferencedSourceFilesDeep = (
 export const getReferencedSourceFiles = (
   entryFile: SourceFile,
   getSymbols: GetSymbols,
-  abortTraversal?: AbortTraversal
+  abortTraversal?: AbortTraversal,
 ) => {
   const sourceFiles = getReferencedSourceFilesForSymbols(entryFile, getSymbols);
   return Array.from(getReferencedSourceFilesDeep(sourceFiles, new Set(sourceFiles), getSymbols, abortTraversal));

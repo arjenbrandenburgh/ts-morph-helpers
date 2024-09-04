@@ -7,6 +7,6 @@ export const hasSymbol = (sourceFiles: SourceFile | SourceFile[], symbol: Symbol
     [sourceFiles]
       .flat()
       .find(sourceFile =>
-        sourceFile.getDescendantsOfKind(ts.SyntaxKind.Identifier).find(identifier => identifier.getSymbol() === symbol)
-      )
+        sourceFile.getDescendantsOfKind(ts.SyntaxKind.Identifier).find(identifier => identifier.getSymbol() === symbol),
+      ),
   );

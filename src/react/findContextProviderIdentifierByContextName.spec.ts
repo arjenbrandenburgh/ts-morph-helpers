@@ -8,7 +8,7 @@ test('findContextProviderIdentifierByContextName', () => {
   const project = new Project({ useInMemoryFileSystem: true });
   const sourceFile = project.createSourceFile(
     'index.tsx',
-    `export const MyProvider = ({ children }) => <MyContext.Provider>{children}</MyContext.Provider>;`
+    `export const MyProvider = ({ children }) => <MyContext.Provider>{children}</MyContext.Provider>;`,
   );
   const identifier = findContextProviderIdentifierByContextName(sourceFile, 'MyContext');
   assert(identifier?.isKind(ts.SyntaxKind.Identifier));
@@ -23,7 +23,7 @@ test('findContextProviderIdentifierByContextName', () => {
         return <Wrapper>
           <MyContext.Provider>{children}</MyContext.Provider>
         </Wrapper>;
-      };`
+      };`,
   );
   const identifier = findContextProviderIdentifierByContextName(sourceFile, 'MyContext');
   assert(identifier?.isKind(ts.SyntaxKind.Identifier));

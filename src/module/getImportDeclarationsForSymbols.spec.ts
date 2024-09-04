@@ -7,7 +7,7 @@ test('getImportDeclarationsForSymbols', () => {
   const project = new Project({ useInMemoryFileSystem: true });
   const sourceFile = project.createSourceFile(
     'index.ts',
-    `import { a } from './a'; import { b } from 'b'; const c = a + b; const d = b + c;`
+    `import { a } from './a'; import { b } from 'b'; const c = a + b; const d = b + c;`,
   );
   const identifiers = sourceFile.getDescendantsOfKind(ts.SyntaxKind.Identifier);
   const symbols = identifiers

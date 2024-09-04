@@ -9,7 +9,7 @@ test('findHookIdentifierByContextName', () => {
   const sourceFile = project.createSourceFile(
     'provider.tsx',
     ` const MyContext = createContext();
-      export const useMyContext = (): SomeContext => useContext(MyContext);`
+      export const useMyContext = (): SomeContext => useContext(MyContext);`,
   );
   const hookIdentifier = findHookIdentifierByContextName(sourceFile, 'MyContext');
   assert(hookIdentifier?.isKind(ts.SyntaxKind.Identifier));
@@ -22,7 +22,7 @@ test('findHookIdentifierByContextName', () => {
     ` const MyContext = createContext();
       export const useMyContext = function() {
         return useContext(MyContext);
-      }`
+      }`,
   );
   const hookIdentifier = findHookIdentifierByContextName(sourceFile, 'MyContext');
   assert(hookIdentifier?.isKind(ts.SyntaxKind.Identifier));

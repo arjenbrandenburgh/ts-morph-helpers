@@ -14,7 +14,7 @@ test('findHookCallExpressions', () => {
         const b = getSomething();
         useCustom(b);
         return null;
-      }`
+      }`,
   );
   const result = findHookCallExpressions(sourceFile);
   assert(result.length === 3);

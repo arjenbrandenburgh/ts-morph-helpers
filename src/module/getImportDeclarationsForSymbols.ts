@@ -8,12 +8,13 @@ type GetImportDeclarationsForSymbols = (symbols: Symbol[], options?: Options) =>
 /** Get import declarations for symbols (only ./relative ../imports by default) */
 export const getImportDeclarationsForSymbols: GetImportDeclarationsForSymbols = (
   symbols,
-  options = { onlyRelative: true }
+  options = { onlyRelative: true },
 ) => {
   const declarations = getDeclarationsForSymbols(symbols);
   const importDeclarations = declarations
     .filter(
-      declaration => declaration.isKind(ts.SyntaxKind.ImportSpecifier) || declaration.isKind(ts.SyntaxKind.ImportClause)
+      declaration =>
+        declaration.isKind(ts.SyntaxKind.ImportSpecifier) || declaration.isKind(ts.SyntaxKind.ImportClause),
     )
     .map(declaration => declaration.getFirstAncestorByKind(ts.SyntaxKind.ImportDeclaration))
     .filter((declaration): declaration is ImportDeclaration => Boolean(declaration));

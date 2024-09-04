@@ -7,7 +7,7 @@ test('getDeclarationsForSymbols', () => {
   const project = new Project({ useInMemoryFileSystem: true });
   const sourceFile = project.createSourceFile(
     'index.ts',
-    `const a = 1; export const b = 2; const c = a + b; const d = b + c;`
+    `const a = 1; export const b = 2; const c = a + b; const d = b + c;`,
   );
   const symbols = sourceFile
     .getDescendantsOfKind(ts.SyntaxKind.Identifier)

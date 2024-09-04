@@ -7,7 +7,7 @@ export const hasReferencingDefaultImport = (sourceFile: SourceFile) => {
     nodes.find(
       node =>
         (node.isKind(ts.SyntaxKind.ImportDeclaration) && node.getDefaultImport()) ||
-        node.isKind(ts.SyntaxKind.CallExpression)
-    )
+        node.isKind(ts.SyntaxKind.CallExpression),
+    ),
   );
 };
